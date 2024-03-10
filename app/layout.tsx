@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ApolloProvider } from "@apollo/client";
 import createApolloClient from "./_graphql/connect";
+import { ChakraProviderWrapper } from "./_components/providers/ChakraProviderWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ApolloProvider client={createApolloClient()}>
-          {children}
+          <ChakraProviderWrapper>
+            {children}
+          </ChakraProviderWrapper>
         </ApolloProvider>
       </body>
     </html>
