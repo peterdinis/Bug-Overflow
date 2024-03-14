@@ -1,9 +1,7 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 const Navigation: FC = () => {
-    return (
-        <>NAVBAR</>
-    )
-}
+    return <>NAVBAR</>;
+};
 
 export default Navigation;
