@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ApolloProvider } from "@apollo/client";
-import createApolloClient from "./_graphql/connect";
 import { ChakraProviderWrapper } from "./_components/providers/ChakraProviderWrapper";
+import ApolloProviderWrapper from "./_components/providers/ApolloProviderWrapper";
+import ScrollToTopProvider from "./_components/providers/ScrollToTopProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ApolloProvider client={createApolloClient()}>
+        <ApolloProviderWrapper>
           <ChakraProviderWrapper>
-            {children}
+            <ScrollToTopProvider>
+              {children}
+            </ScrollToTopProvider>
           </ChakraProviderWrapper>
-        </ApolloProvider>
+        </ApolloProviderWrapper>
       </body>
     </html>
   );
