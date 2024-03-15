@@ -22,7 +22,8 @@ export default function RootLayout({
             <body className={inter.className}>
                 <ApolloProviderWrapper>
                     <ChakraProviderWrapper>
-                        <ScrollToTopProvider>{children}</ScrollToTopProvider>
+                        {children}
+                        <ScrollToTopProvider />
                     </ChakraProviderWrapper>
                 </ApolloProviderWrapper>
             </body>
