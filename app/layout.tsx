@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ChakraProviderWrapper } from './_components/providers/ChakraProviderWrapper';
 import ApolloProviderWrapper from './_components/providers/ApolloProviderWrapper';
 import ScrollToTopProvider from './_components/providers/ScrollToTopProvider';
-import Navigation from './_components/shared/Navigation';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,11 +21,8 @@ export default function RootLayout({
         <html lang='en'>
             <body className={inter.className}>
                 <ApolloProviderWrapper>
-                    <ChakraProviderWrapper>
-                        <Navigation />
-                        {children}
-                        <ScrollToTopProvider />
-                    </ChakraProviderWrapper>
+                    {children}
+                 <ScrollToTopProvider />
                 </ApolloProviderWrapper>
             </body>
         </html>
