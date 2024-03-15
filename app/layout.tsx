@@ -4,6 +4,7 @@ import './globals.css';
 import { ChakraProviderWrapper } from './_components/providers/ChakraProviderWrapper';
 import ApolloProviderWrapper from './_components/providers/ApolloProviderWrapper';
 import ScrollToTopProvider from './_components/providers/ScrollToTopProvider';
+import Navigation from './_components/shared/Navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
             <body className={inter.className}>
                 <ApolloProviderWrapper>
                     <ChakraProviderWrapper>
+                        <Navigation />
                         {children}
                         <ScrollToTopProvider />
                     </ChakraProviderWrapper>

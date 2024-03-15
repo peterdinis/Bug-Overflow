@@ -1,31 +1,23 @@
 "use client"
 
+import { Box,  useColorModeValue } from "@chakra-ui/react";
 import { FC, useState } from "react";
-import { Box, Button } from '@chakra-ui/react';
-import {motion} from "framer-motion";
 
-const variants = {
-    open: { width: '250px' },
-    closed: { width: '0' }
-  };
 const Sidebar: FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleSidebar = () => {
-      setIsOpen(!isOpen);
-    };
+    const [scroll] = useState(false);
     return (
-        <Box
-        as={motion.div}
-        initial={false}
-        animate={isOpen ? 'open' : 'closed'}
-        variants={variants}
-        bg="gray.200"
-        h="100vh"
-      >
-        Sidebar Content
-        <Button onClick={toggleSidebar}>Toggle</Button>
-      </Box>
+        <Box  bg={useColorModeValue('gray.100', 'gray.900')}
+        px={4}
+        h={16}
+        boxShadow={scroll ? 'base' : 'none'}
+        zIndex='sticky'
+        position='fixed'
+        as='header'
+        alignItems={'center'}
+        justifyContent={'space-between'}
+        w='100%'>
+            <p>RORORORORO</p>
+        </Box>
     )
 }
 
