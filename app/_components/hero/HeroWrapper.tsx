@@ -1,7 +1,12 @@
 import { FC } from 'react';
+import QuestionWrapper from '../questions/QuestionWrapper';
 
 const HeroWrapper: FC = () => {
-    return <>rrr</>;
+    return (
+        <>
+        <QuestionWrapper />
+        </>
+    )
 };
 
 export default HeroWrapper;
