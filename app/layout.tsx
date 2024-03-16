@@ -5,7 +5,6 @@ import ApolloProviderWrapper from './_components/providers/ApolloProviderWrapper
 import ScrollToTopProvider from './_components/providers/ScrollToTopProvider';
 import Navigation from './_components/shared/Navigation';
 
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -24,7 +23,7 @@ export default function RootLayout({
                 <ApolloProviderWrapper>
                     <Navigation />
                     {children}
-                 <ScrollToTopProvider />
+                    <ScrollToTopProvider />
                 </ApolloProviderWrapper>
             </body>
         </html>

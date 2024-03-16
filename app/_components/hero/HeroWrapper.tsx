@@ -1,9 +1,7 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 const HeroWrapper: FC = () => {
-    return (
-        <>rrr</>
-    )
-}
+    return <>rrr</>;
+};
 
 export default HeroWrapper;
