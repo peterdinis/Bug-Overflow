@@ -4,9 +4,9 @@ import QuestionWrapper from '../questions/QuestionWrapper';
 const HeroWrapper: FC = () => {
     return (
         <>
-        <QuestionWrapper />
+            <QuestionWrapper />
         </>
-    )
+    );
 };
 
 export default HeroWrapper;

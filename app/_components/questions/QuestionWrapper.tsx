@@ -1,6 +1,6 @@
-import { FC } from "react";
-import Sidebar from "../shared/Sidebar";
-import QuestionsLists from "./QuestionsLists";
+import { FC } from 'react';
+import Sidebar from '../shared/Sidebar';
+import QuestionsLists from './QuestionsLists';
 
 const QuestionWrapper: FC = () => {
     return (
@@ -8,7 +8,7 @@ const QuestionWrapper: FC = () => {
             <Sidebar />
             <QuestionsLists />
         </div>
-    )
-}
+    );
+};
 
 export default QuestionWrapper;

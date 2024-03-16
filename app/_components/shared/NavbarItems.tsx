@@ -7,6 +7,15 @@ const NavbarItems: FC = () => {
             <li className='text-xl text-black'>
                 <Link href='/'>Home</Link>
             </li>
+            <li className='text-xl text-black'>
+                <Link href='/about'>About</Link>
+            </li>
+            <li className='text-xl text-black'>
+                <Link href='/login'>Login</Link>
+            </li>
+            <li className='text-xl text-black'>
+                <Link href='/register'>Register</Link>
+            </li>
         </>
     );
 };
