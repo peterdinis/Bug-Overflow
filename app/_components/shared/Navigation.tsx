@@ -1,153 +1,50 @@
-"use client"
+'use client';
 
 import { FC, useState } from 'react';
-import {
-    Flex,
-    Button,
-    Drawer,
-    DrawerBody,
-    DrawerOverlay,
-    DrawerContent,
-    useColorModeValue,
-    Stack,
-    useColorMode,
-    IconButton,
-    useMediaQuery,
-    useDisclosure,
-    HStack,
-    Text,
-    Link,
-} from '@chakra-ui/react';
-import { CiMenuBurger } from "react-icons/ci";
-import { FaRegMoon } from "react-icons/fa";
-import { FaRegSun } from "react-icons/fa6";
+import Link from 'next/link';
+import NavbarItems from './NavbarItems';
+import { X, Menu } from 'lucide-react';
 
 const Navigation: FC = () => {
-    const [scroll] = useState(false);
-    const { colorMode, toggleColorMode } = useColorMode();
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const [isLargerThanMD] = useMediaQuery('(min-width: 48em)');
-
-    const scrollMe = () => {
-        const heroSection = document.querySelector(
-            '#me'
-        ) as unknown as HTMLElement;
-        heroSection.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const expirienceScoll = () => {
-        const heroSection = document.querySelector(
-            '#expirience'
-        ) as unknown as HTMLElement;
-        heroSection.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const projectsScroll = () => {
-        const heroSection = document.querySelector(
-            '#projects'
-        ) as unknown as HTMLElement;
-        heroSection.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const contactsScroll = () => {
-        const heroSection = document.querySelector(
-            '#contact'
-        ) as unknown as HTMLElement;
-        heroSection.scrollIntoView({ behavior: 'smooth' });
-    };
+    const [navbar, setNavbar] = useState<Boolean>(false);
 
     return (
-        <Flex
-            bg={useColorModeValue('gray.100', 'gray.900')}
-            px={4}
-            h={16}
-            boxShadow={scroll ? 'base' : 'none'}
-            zIndex='sticky'
-            position='fixed'
-            as='header'
-            alignItems={'center'}
-            justifyContent={'space-between'}
-            w='100%'
-        >
-            <Link>
-                <HStack>
-                    <Text fontWeight={'bold'}>Peter Dinis</Text>
-                </HStack>
-            </Link>
-
-            <Flex alignItems={'center'}>
-                <Stack direction={'row'} spacing={7}>
-                    {isLargerThanMD ? (
-                        <>
-                            <Button onClick={scrollMe} variant='ghost'>
-                               rr
-                            </Button>
-                            <Button onClick={expirienceScoll} variant='ghost'>
-                              rr
-                            </Button>
-                            <Button onClick={projectsScroll} variant='ghost'>
-                               rrr
-                            </Button>
-                            <Button onClick={contactsScroll} variant='ghost'>
-                               eeee
-                            </Button>
-                        </>
-                    ) : (
-                        <></>
-                    )}
-                    <Button onClick={toggleColorMode}>
-                        {colorMode === 'light' ? <FaRegMoon /> : <FaRegSun />}
-                    </Button>
-
-                    {isLargerThanMD ? (
-                        <></>
-                    ) : (
-                        <>
-                            <Button
-                                as={IconButton}
-                                icon={<CiMenuBurger />}
-                                onClick={onOpen}
-                            ></Button>
-                            <Drawer
-                                placement='top'
-                                onClose={onClose}
-                                isOpen={isOpen}
+        <nav className='w-full bg-white'>
+            <div className='mx-auto justify-between px-4 md:flex md:items-center md:px-8 lg:max-w-7xl'>
+                <div>
+                    <div className='flex items-center justify-between py-3 md:block md:py-5'>
+                        <Link href='/'>
+                            <h2 className='text-xl font-bold text-black'>
+                                Bug Overflow
+                            </h2>
+                        </Link>
+                        <div className='md:hidden'>
+                            <button
+                                className='rounded-md p-2 text-gray-700 outline-none focus:border focus:border-gray-400'
+                                onClick={() => setNavbar(!navbar)}
                             >
-                                <DrawerOverlay />
-                                <DrawerContent>
-                                    <DrawerBody>
-                                        <Button
-                                            onClick={scrollMe}
-                                            variant='ghost'
-                                        >
-                                         rrrr
-                                        </Button>
-                                        <Button
-                                            onClick={expirienceScoll}
-                                            variant='ghost'
-                                        >
-                                           rrrr
-                                        </Button>
-                                        <Button
-                                            onClick={projectsScroll}
-                                            variant='ghost'
-                                        >
-                                           eeee
-                                        </Button>
-                                        <Button
-                                            onClick={contactsScroll}
-                                            variant='ghost'
-                                        >
-                                           eeee
-                                        </Button>
-                                    </DrawerBody>
-                                </DrawerContent>
-                            </Drawer>
-                        </>
-                    )}
-                </Stack>
-            </Flex>
-        </Flex>
+                                {navbar ? (
+                                    <X className='h-6 font-bold' />
+                                ) : (
+                                    <Menu className='h-6 font-bold' />
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div
+                        className={`mt-8 flex-1 justify-self-center pb-3 md:mt-0 md:block md:pb-0 ${
+                            navbar ? 'block' : 'hidden'
+                        }`}
+                    >
+                        <ul className='items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0'>
+                            <NavbarItems />
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
     );
 };
 
