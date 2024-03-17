@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useState } from 'react';
+import { RiHome2Fill, RiSettings5Fill, RiContactsFill } from 'react-icons/ri';
 
 const Sidebar: FC = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -12,7 +13,7 @@ const Sidebar: FC = () => {
     return (
         <>
             <div
-                onClick={toggleSidebar}
+                onClick={() => setSidebarOpen(false)}
                 className={`fixed inset-0 bg-opacity-30 z-40 transition-opacity duration-200 ${
                     sidebarOpen
                         ? 'opacity-100'
@@ -27,7 +28,7 @@ const Sidebar: FC = () => {
                 }`}
             >
                 <div className='flex justify-between pr-3 sm:px-2'>
-                    {/* Your logo or any other content */}
+                    <span className="text-lg font-bold">Bug Overlow</span>
                 </div>
 
                 <div className='pt-3 lg:inline-flex mt-auto '>
@@ -53,6 +54,23 @@ const Sidebar: FC = () => {
                             </svg>
                         </button>
                     </div>
+                </div>
+
+                <div className="mt-6">
+                    <ul>
+                        <li className="flex items-center space-x-2">
+                            <RiHome2Fill />
+                            <span className='font-bold text-2xl p-1'>Home</span>
+                        </li>
+                        <li className="flex mt-5 items-center space-x-2">
+                            <RiSettings5Fill />
+                            <span className='font-bold text-2xl p-1'>Settings</span>
+                        </li>
+                        <li className="flex mt-5 items-center space-x-2">
+                            <RiContactsFill />
+                            <span className='font-bold text-2xl p-1'>Contact</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </>
