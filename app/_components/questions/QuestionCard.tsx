@@ -2,14 +2,16 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { FC } from 'react';
 import {format} from "date-fns";
+import { Badge } from '@/components/ui/badge';
 
 interface IQuestionCardProps {
     id: number;
     title: string;
     created: string | Date;
+    tag: string;
 }
 
-const QuestionCard: FC<IQuestionCardProps> = ({id, title, created}: IQuestionCardProps) => {
+const QuestionCard: FC<IQuestionCardProps> = ({id, title, created, tag}: IQuestionCardProps) => {
     return (
         <>
             <div className='max-w-2xl mx-auto mt-2'>
@@ -26,6 +28,9 @@ const QuestionCard: FC<IQuestionCardProps> = ({id, title, created}: IQuestionCar
                         <p className='text-xl font-bold'>
                             {title}
                         </p>
+                        <Badge variant={"secondary"}>
+                            {tag}
+                        </Badge>
                         <span className='font-bold text-xl'>
                             {format(created!, 'yyyy-MM-dd')}
                         </span>
