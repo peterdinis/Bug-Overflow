@@ -28,7 +28,7 @@ const Sidebar: FC = () => {
                 }`}
             >
                 <div className='flex justify-between pr-3 sm:px-2'>
-                    <span className="text-lg font-bold">Bug Overlow</span>
+                    <span className='text-lg font-bold'>Bug Overlow</span>
                 </div>
 
                 <div className='pt-3 lg:inline-flex mt-auto '>
@@ -38,7 +38,7 @@ const Sidebar: FC = () => {
                             <span className='sr-only'>
                                 Expand / collapse sidebar
                             </span>
-                            {/* <svg
+                            <svg
                                 className={`w-6 h-6 fill-current ${
                                     !sidebarOpen ? 'rotate-0' : 'rotate-180'
                                 }`}
@@ -51,24 +51,28 @@ const Sidebar: FC = () => {
                                     strokeLinecap='round'
                                     strokeLinejoin='round'
                                 />
-                            </svg> */}
+                            </svg>
                         </button>
                     </div>
                 </div>
 
-                <div className="mt-6">
+                <div className='mt-6'>
                     <ul>
-                        <li className="flex items-center space-x-2">
+                        <li className='flex items-center space-x-2'>
                             <RiHome2Fill />
                             <span className='font-bold text-2xl p-1'>Home</span>
                         </li>
-                        <li className="flex mt-5 items-center space-x-2">
+                        <li className='flex mt-5 items-center space-x-2'>
                             <RiSettings5Fill />
-                            <span className='font-bold text-2xl p-1'>Settings</span>
+                            <span className='font-bold text-2xl p-1'>
+                                Settings
+                            </span>
                         </li>
-                        <li className="flex mt-5 items-center space-x-2">
+                        <li className='flex mt-5 items-center space-x-2'>
                             <RiContactsFill />
-                            <span className='font-bold text-2xl p-1'>Contact</span>
+                            <span className='font-bold text-2xl p-1'>
+                                Contact
+                            </span>
                         </li>
                     </ul>
                 </div>
