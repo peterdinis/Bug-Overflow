@@ -10,7 +10,7 @@ interface IScrollToTopProviderProps {
 const ScrollToTopProvider: FC<IScrollToTopProviderProps> = ({
     children,
 }: IScrollToTopProviderProps) => {
-    return <ScrollToTop>{children}</ScrollToTop>;
+    return <ScrollToTop smooth={true}>{children}</ScrollToTop>;
 };
 
 export default ScrollToTopProvider;

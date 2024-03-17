@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import ApolloProviderWrapper from './_components/providers/ApolloProviderWrapper';
 import ScrollToTopProvider from './_components/providers/ScrollToTopProvider';
-import Navigation from './_components/shared/Navigation';
+import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,8 +21,8 @@ export default function RootLayout({
         <html lang='en'>
             <body className={inter.className}>
                 <ApolloProviderWrapper>
-                    <Navigation />
                     {children}
+                    <Toaster />
                     <ScrollToTopProvider />
                 </ApolloProviderWrapper>
             </body>
