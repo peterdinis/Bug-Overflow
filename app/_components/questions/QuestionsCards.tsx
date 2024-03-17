@@ -1,11 +1,12 @@
-import { FC } from "react";
+import { FC } from 'react';
+import QuestionCard from './QuestionCard';
 
 const QuestionsCards: FC = () => {
     return (
-        <section className="mt-6 ml-4 p-2 flex justify-center align-top">
-            CARDS
+        <section className='mt-2 ml-4 p-2'>
+            <QuestionCard />
         </section>
-    )
-}
+    );
+};
 
 export default QuestionsCards;
