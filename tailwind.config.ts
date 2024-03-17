@@ -74,9 +74,9 @@ const config = {
             },
 
             gridTemplateColumns: {
-                sidebar: "300px auto", //for sidebar layout
-                "sidebar-collapsed": "64px auto", //for collapsed sidebar layout
-              }
+                sidebar: '300px auto', //for sidebar layout
+                'sidebar-collapsed': '64px auto', //for collapsed sidebar layout
+            },
         },
     },
     plugins: [require('tailwindcss-animate')],
