@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { FC } from 'react';
-import {format} from "date-fns";
+import { format } from 'date-fns';
 import { Badge } from '@/components/ui/badge';
 
 interface IQuestionCardProps {
@@ -11,7 +11,12 @@ interface IQuestionCardProps {
     tag: string;
 }
 
-const QuestionCard: FC<IQuestionCardProps> = ({id, title, created, tag}: IQuestionCardProps) => {
+const QuestionCard: FC<IQuestionCardProps> = ({
+    id,
+    title,
+    created,
+    tag,
+}: IQuestionCardProps) => {
     return (
         <>
             <div className='max-w-2xl mx-auto mt-2'>
@@ -25,21 +30,19 @@ const QuestionCard: FC<IQuestionCardProps> = ({id, title, created, tag}: IQuesti
                     </div>
 
                     <div className='flex flex-col gap-2 py-2'>
-                        <p className='text-xl font-bold'>
-                            {title}
-                        </p>
-                        <Badge variant={"secondary"}>
-                            {tag}
-                        </Badge>
+                        <p className='text-xl font-bold'>{title}</p>
+                        <Badge variant={'secondary'}>{tag}</Badge>
                         <span className='font-bold text-xl'>
                             {format(created!, 'yyyy-MM-dd')}
                         </span>
                         <Button>
-                            <Link href={`/question/${id}`}>Question Detail</Link>
+                            <Link href={`/question/${id}`}>
+                                Question Detail
+                            </Link>
                         </Button>
                     </div>
                 </div>
-            </div>       
+            </div>
         </>
     );
 };

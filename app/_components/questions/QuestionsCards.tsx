@@ -1,12 +1,25 @@
 import { FC } from 'react';
 import QuestionCard from './QuestionCard';
 
-
 const QuestionsCards: FC = () => {
     return (
         <section className='mt-2 ml-4 p-2'>
-            <QuestionCard tag={"HTML"} id={1} title={'ABC'} created={'Sun Mar 17 2024 16:33:02 GMT+0100 (stredoeurópsky štandardný čas)'} />
-            <QuestionCard tag={"CSS"} id={2} title={'CVQA'} created={'Sun Mar 17 2024 16:33:02 GMT+0100 (stredoeurópsky štandardný čas)'} />
+            <QuestionCard
+                tag={'HTML'}
+                id={1}
+                title={'ABC'}
+                created={
+                    'Sun Mar 17 2024 16:33:02 GMT+0100 (stredoeurópsky štandardný čas)'
+                }
+            />
+            <QuestionCard
+                tag={'CSS'}
+                id={2}
+                title={'CVQA'}
+                created={
+                    'Sun Mar 17 2024 16:33:02 GMT+0100 (stredoeurópsky štandardný čas)'
+                }
+            />
         </section>
     );
 };

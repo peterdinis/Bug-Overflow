@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Sidebar from '../shared/Sidebar';
+import Sidebar from '../shared/sidebar/Sidebar';
 import Header from '../shared/Header';
 import HomepageQuestions from '../questions/HomepageQuestions';
 
