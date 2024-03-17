@@ -38,7 +38,7 @@ const Sidebar: FC = () => {
                             <span className='sr-only'>
                                 Expand / collapse sidebar
                             </span>
-                            <svg
+                            {/* <svg
                                 className={`w-6 h-6 fill-current ${
                                     !sidebarOpen ? 'rotate-0' : 'rotate-180'
                                 }`}
@@ -51,7 +51,7 @@ const Sidebar: FC = () => {
                                     strokeLinecap='round'
                                     strokeLinejoin='round'
                                 />
-                            </svg>
+                            </svg> */}
                         </button>
                     </div>
                 </div>
