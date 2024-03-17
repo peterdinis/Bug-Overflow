@@ -31,7 +31,15 @@ const QuestionCard: FC<IQuestionCardProps> = ({
 
                     <div className='flex flex-col gap-2 py-2'>
                         <p className='text-xl font-bold'>{title}</p>
-                        <Badge variant={'secondary'}>{tag}</Badge>
+                        <div className='flex justify-center'>
+                            <Badge variant={'secondary'}>{tag}</Badge>
+                            <Badge className='ml-3' variant={'outline'}>
+                                {tag}
+                            </Badge>
+                            <Badge className='ml-3' variant={'destructive'}>
+                                {tag}
+                            </Badge>
+                        </div>
                         <span className='font-bold text-xl'>
                             {format(created!, 'yyyy-MM-dd')}
                         </span>
