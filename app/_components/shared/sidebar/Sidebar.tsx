@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { FC, useState } from 'react';
 import { RiHome2Fill, RiSettings5Fill, RiContactsFill } from 'react-icons/ri';
 
@@ -72,6 +73,14 @@ const Sidebar: FC = () => {
                             <RiContactsFill />
                             <span className='font-bold text-2xl p-1'>
                                 Contact
+                            </span>
+                        </li>
+                        <li className='flex mt-5 items-center space-x-2'>
+                            <RiContactsFill />
+                            <span className='font-bold text-2xl p-1'>
+                                <Link href="/technologies">
+                                All Technologies
+                                </Link>
                             </span>
                         </li>
                     </ul>
