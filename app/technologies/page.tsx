@@ -1,8 +1,8 @@
-import { NextPage } from "next";
-import TechnologiesWrapper from "../_components/technologies/TechnologiesWrapper";
+import { NextPage } from 'next';
+import TechnologiesWrapper from '../_components/technologies/TechnologiesWrapper';
 
 const AllTechnologiesPage: NextPage = () => {
-    return <TechnologiesWrapper />
-}
+    return <TechnologiesWrapper />;
+};
 
 export default AllTechnologiesPage;

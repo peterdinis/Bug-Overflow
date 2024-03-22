@@ -1,8 +1,11 @@
 import { gql } from '@apollo/client';
 
-export const getAllTechnologies = gql`
-    query getAllTechnologies {
-        id
-        name
+export const GET_ALL_TECHNOLOGIES = gql`
+    query {
+        getAllTechnologies {
+            id
+            image
+            name
+        }
     }
 `;
