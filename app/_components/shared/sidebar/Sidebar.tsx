@@ -37,7 +37,7 @@ const Sidebar: FC = () => {
         'transition-[grid-template-columns] duration-300 ease-in-out': true,
       })}
     >
-      <div className='bg-white text-black'>
+      <div className='bg-gray-100 text-black'>
         <button onClick={() => setSidebarCollapsed((prev) => !prev)}>
           {collapsed === true ? (
             <Menu className='w-7 h-7' />
