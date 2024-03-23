@@ -65,14 +65,7 @@ const Sidebar: FC = () => {
                             <div className='mt-8'>
                                 <Button variant={'ghost'} value='sm'>
                                     <Upload />
-                                    <Link href='/upload'>Upload new file</Link>
-                                </Button>
-                            </div>
-
-                            <div className='mt-8'>
-                                <Button variant={'ghost'} value='sm'>
-                                    <Files />
-                                    <Link href='/files'>My all files</Link>
+                                    <Link href='/technologies'>Technologies</Link>
                                 </Button>
                             </div>
                         </div>
@@ -108,26 +101,7 @@ const Sidebar: FC = () => {
                                                     <Upload />
                                                 </Link>
                                                 <TooltipContent>
-                                                    Upload file
-                                                </TooltipContent>
-                                            </Button>
-                                        </TooltipTrigger>
-                                    </Tooltip>
-                                </TooltipProvider>
-                            </div>
-                            <div className='mt-8'>
-                                <TooltipProvider>
-                                    <Tooltip>
-                                        <TooltipTrigger>
-                                            <Button
-                                                variant={'ghost'}
-                                                size={'sm'}
-                                            >
-                                                <Link href='/files'>
-                                                    <Files />
-                                                </Link>
-                                                <TooltipContent>
-                                                    My files
+                                                   Technologies
                                                 </TooltipContent>
                                             </Button>
                                         </TooltipTrigger>
