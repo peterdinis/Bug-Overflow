@@ -14,7 +14,7 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { GrTechnology } from 'react-icons/gr';
-import { BsQuestionSquare } from "react-icons/bs";
+import { BsQuestionSquare } from 'react-icons/bs';
 
 const Sidebar: FC = () => {
     const [collapsed, setSidebarCollapsed] = useState(false);
@@ -76,9 +76,7 @@ const Sidebar: FC = () => {
                             <div className='mt-8'>
                                 <Button variant={'ghost'} value='sm'>
                                     <BsQuestionSquare className='w-8 h-8' />
-                                    <Link href='/'>
-                                        Questions
-                                    </Link>
+                                    <Link href='/'>Questions</Link>
                                 </Button>
                             </div>
                         </div>
