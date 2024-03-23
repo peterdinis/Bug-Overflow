@@ -14,11 +14,11 @@ import TechnologiesPagination from './TechnologiesPagination';
 const TechnologiesWrapper: FC = () => {
     const { data, error, loading } = useQuery(GET_ALL_TECHNOLOGIES);
 
-    if(loading) {
-        return <Loader2 className='animate-spin' />
+    if (loading) {
+        return <Loader2 className='animate-spin' />;
     }
 
-    if(error) {
+    if (error) {
         throw new Error(error.message);
     }
 
