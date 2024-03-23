@@ -6,7 +6,7 @@ import Sidebar from '../shared/sidebar/Sidebar';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_TECHNOLOGIES } from '@/app/_graphql/queries/technologyQueries';
 import TechnologiesSearch from './TechnologiesSearch';
-import TechnologiesCards from './TechnologiesCards';
+import TechnologiesCard from './TechnologiesCard';
 import { GetAllTechnologies } from '@/app/_graphql/types/TechnologyTypes';
 import { Loader2 } from 'lucide-react';
 
@@ -36,7 +36,7 @@ const TechnologiesWrapper: FC = () => {
                                 (item: GetAllTechnologies) => {
                                     return (
                                         <div key={item.id}>
-                                            <TechnologiesCards
+                                            <TechnologiesCard
                                                 name={item.name}
                                                 image={item.image}
                                             />

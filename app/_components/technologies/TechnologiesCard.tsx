@@ -3,7 +3,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-const TechnologiesCards: FC<GetAllTechnologies> = ({
+const TechnologiesCard: FC<GetAllTechnologies> = ({
     name,
     image,
 }: GetAllTechnologies) => {
@@ -32,4 +32,4 @@ const TechnologiesCards: FC<GetAllTechnologies> = ({
     );
 };
 
-export default TechnologiesCards;
+export default TechnologiesCard;
