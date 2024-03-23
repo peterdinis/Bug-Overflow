@@ -17,10 +17,10 @@ const TechnologiesCard: FC<GetAllTechnologies> = ({
                         className='h-50 w-50 object-cover rounded-t-xl'
                     />
                     <div className='px-4 py-3 w-72'>
-                        <span className='text-gray-400 mr-3 uppercase text-xs'>
+                        <span className='text-gray-400 font-bold mr-3 uppercase text-xs'>
                             {name}
                         </span>
-                        <Link href={`/questions/search/${name}`}>
+                        <Link className='mt-4 p-1' href={`/questions/search/${name}`}>
                             <Button variant={'ghost'} size={'lg'}>
                                 Find all {name} questions
                             </Button>
