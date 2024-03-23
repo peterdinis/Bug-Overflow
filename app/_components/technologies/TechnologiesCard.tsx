@@ -20,7 +20,7 @@ const TechnologiesCard: FC<GetAllTechnologies> = ({
                         <span className='text-gray-400 mr-3 uppercase text-xs'>
                             {name}
                         </span>
-                        <Link href='/'>
+                        <Link href={`/questions/search/${name}`}>
                             <Button variant={'ghost'} size={'lg'}>
                                 Find all {name} questions
                             </Button>

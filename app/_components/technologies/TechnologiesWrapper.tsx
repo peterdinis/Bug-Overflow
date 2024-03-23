@@ -9,6 +9,7 @@ import TechnologiesSearch from './TechnologiesSearch';
 import TechnologiesCard from './TechnologiesCard';
 import { GetAllTechnologies } from '@/app/_graphql/types/TechnologyTypes';
 import { Loader2 } from 'lucide-react';
+import TechnologiesPagination from './TechnologiesPagination';
 
 const TechnologiesWrapper: FC = () => {
     const { data, error, loading } = useQuery(GET_ALL_TECHNOLOGIES);
@@ -44,6 +45,10 @@ const TechnologiesWrapper: FC = () => {
                                     );
                                 },
                             )}
+                    </section>
+
+                    <section className='mt-4 relative bottom-0'>
+                        <TechnologiesPagination />
                     </section>
                 </div>
             </div>
