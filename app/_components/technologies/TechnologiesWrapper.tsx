@@ -8,9 +8,18 @@ import { GET_ALL_TECHNOLOGIES } from '@/app/_graphql/queries/technologyQueries';
 import TechnologiesSearch from './TechnologiesSearch';
 import TechnologiesCards from './TechnologiesCards';
 import { GetAllTechnologies } from '@/app/_graphql/types/TechnologyTypes';
+import { Loader2 } from 'lucide-react';
 
 const TechnologiesWrapper: FC = () => {
     const { data, error, loading } = useQuery(GET_ALL_TECHNOLOGIES);
+
+    if(loading) {
+        return <Loader2 className='animate-spin' />
+    }
+
+    if(error) {
+        throw new Error(error.message);
+    }
 
     return (
         <div className='flex flex-no-wrap'>
@@ -22,10 +31,6 @@ const TechnologiesWrapper: FC = () => {
                         <TechnologiesSearch />
                     </div>
                     <section className='mt-4'>
-                        <span className='mt-4 ml-4 text-xl font-bold'>
-                            Something later
-                        </span>
-                        <br />
                         {data &&
                             data.getAllTechnologies.map(
                                 (item: GetAllTechnologies) => {
