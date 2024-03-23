@@ -14,6 +14,7 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { GrTechnology } from 'react-icons/gr';
+import { BsQuestionSquare } from "react-icons/bs";
 
 const Sidebar: FC = () => {
     const [collapsed, setSidebarCollapsed] = useState(false);
@@ -71,6 +72,15 @@ const Sidebar: FC = () => {
                                     </Link>
                                 </Button>
                             </div>
+
+                            <div className='mt-8'>
+                                <Button variant={'ghost'} value='sm'>
+                                    <BsQuestionSquare className='w-8 h-8' />
+                                    <Link href='/'>
+                                        Questions
+                                    </Link>
+                                </Button>
+                            </div>
                         </div>
                     </>
                 ) : (
@@ -105,6 +115,25 @@ const Sidebar: FC = () => {
                                                 </Link>
                                                 <TooltipContent>
                                                     Technologies
+                                                </TooltipContent>
+                                            </Button>
+                                        </TooltipTrigger>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </div>
+                            <div className='mt-8'>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger>
+                                            <Button
+                                                variant={'ghost'}
+                                                size={'sm'}
+                                            >
+                                                <Link href='/'>
+                                                    <BsQuestionSquare className='w-8 h-8' />
+                                                </Link>
+                                                <TooltipContent>
+                                                    Questions
                                                 </TooltipContent>
                                             </Button>
                                         </TooltipTrigger>
