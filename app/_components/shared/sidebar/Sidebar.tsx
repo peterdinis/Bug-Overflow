@@ -181,11 +181,11 @@ const Sidebar: FC = () => {
                                                 variant={'ghost'}
                                                 size={'sm'}
                                             >
-                                                <Link href='/settings'>
-                                                    <Settings className='w-8 h-8' />
+                                                <Link href='/profile'>
+                                                    <User className='w-8 h-8' />
                                                 </Link>
                                                 <TooltipContent>
-                                                    Settings
+                                                    Profile
                                                 </TooltipContent>
                                             </Button>
                                         </TooltipTrigger>
