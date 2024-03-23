@@ -13,6 +13,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { GrTechnology } from 'react-icons/gr';
 
 const Sidebar: FC = () => {
     const [collapsed, setSidebarCollapsed] = useState(false);
@@ -64,8 +65,10 @@ const Sidebar: FC = () => {
 
                             <div className='mt-8'>
                                 <Button variant={'ghost'} value='sm'>
-                                    <Upload />
-                                    <Link href='/technologies'>Technologies</Link>
+                                    <GrTechnology className='w-8 h-8' />
+                                    <Link href='/technologies'>
+                                        Technologies
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -97,11 +100,11 @@ const Sidebar: FC = () => {
                                                 variant={'ghost'}
                                                 size={'sm'}
                                             >
-                                                <Link href='/upload'>
-                                                    <Upload />
+                                                <Link href='/technologies'>
+                                                    <GrTechnology className='w-8 h-8' />
                                                 </Link>
                                                 <TooltipContent>
-                                                   Technologies
+                                                    Technologies
                                                 </TooltipContent>
                                             </Button>
                                         </TooltipTrigger>
