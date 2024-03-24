@@ -2,7 +2,7 @@
 
 import { FC, useState } from 'react';
 import classNames from 'classnames';
-import { XCircle, Menu, LogOut, Upload, Files } from 'lucide-react';
+import { XCircle, Menu, LogOut, User, Settings } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -79,6 +79,20 @@ const Sidebar: FC = () => {
                                     <Link href='/'>Questions</Link>
                                 </Button>
                             </div>
+
+                            <div className='mt-8'>
+                                <Button variant={'ghost'} value='sm'>
+                                    <Settings className='w-8 h-8' />
+                                    <Link href='/settings'>Settings</Link>
+                                </Button>
+                            </div>
+
+                            <div className='mt-8'>
+                                <Button variant={'ghost'} value='sm'>
+                                    <User className='w-8 h-8' />
+                                    <Link href='/user'>User</Link>
+                                </Button>
+                            </div>
                         </div>
                     </>
                 ) : (
@@ -132,6 +146,46 @@ const Sidebar: FC = () => {
                                                 </Link>
                                                 <TooltipContent>
                                                     Questions
+                                                </TooltipContent>
+                                            </Button>
+                                        </TooltipTrigger>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </div>
+
+                            <div className='mt-8'>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger>
+                                            <Button
+                                                variant={'ghost'}
+                                                size={'sm'}
+                                            >
+                                                <Link href='/settings'>
+                                                    <Settings className='w-8 h-8' />
+                                                </Link>
+                                                <TooltipContent>
+                                                    Settings
+                                                </TooltipContent>
+                                            </Button>
+                                        </TooltipTrigger>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </div>
+
+                            <div className='mt-8'>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger>
+                                            <Button
+                                                variant={'ghost'}
+                                                size={'sm'}
+                                            >
+                                                <Link href='/profile'>
+                                                    <User className='w-8 h-8' />
+                                                </Link>
+                                                <TooltipContent>
+                                                    Profile
                                                 </TooltipContent>
                                             </Button>
                                         </TooltipTrigger>

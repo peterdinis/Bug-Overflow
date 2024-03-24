@@ -6,11 +6,21 @@ import Sidebar from '../shared/sidebar/Sidebar';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_TECHNOLOGIES } from '@/app/_graphql/queries/technologyQueries';
 import TechnologiesSearch from './TechnologiesSearch';
-import TechnologiesCards from './TechnologiesCards';
+import TechnologiesCard from './TechnologiesCard';
 import { GetAllTechnologies } from '@/app/_graphql/types/TechnologyTypes';
+import { Loader2 } from 'lucide-react';
+import TechnologiesPagination from './TechnologiesPagination';
 
 const TechnologiesWrapper: FC = () => {
     const { data, error, loading } = useQuery(GET_ALL_TECHNOLOGIES);
+
+    if (loading) {
+        return <Loader2 className='animate-spin' />;
+    }
+
+    if (error) {
+        throw new Error(error.message);
+    }
 
     return (
         <div className='flex flex-no-wrap'>
@@ -22,16 +32,12 @@ const TechnologiesWrapper: FC = () => {
                         <TechnologiesSearch />
                     </div>
                     <section className='mt-4'>
-                        <span className='mt-4 ml-4 text-xl font-bold'>
-                            Something later
-                        </span>
-                        <br />
                         {data &&
                             data.getAllTechnologies.map(
                                 (item: GetAllTechnologies) => {
                                     return (
                                         <div key={item.id}>
-                                            <TechnologiesCards
+                                            <TechnologiesCard
                                                 name={item.name}
                                                 image={item.image}
                                             />
@@ -39,6 +45,10 @@ const TechnologiesWrapper: FC = () => {
                                     );
                                 },
                             )}
+                    </section>
+
+                    <section className='mt-4 relative bottom-0'>
+                        <TechnologiesPagination />
                     </section>
                 </div>
             </div>
