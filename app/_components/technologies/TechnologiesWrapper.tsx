@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { FC, useState } from 'react';
 import Header from '../shared/Header';
@@ -23,9 +23,13 @@ const TechnologiesWrapper: FC = () => {
         throw new Error(error.message);
     }
 
-    const filteredTechnologies = data && data.getAllTechnologies.filter((technology: GetAllTechnologies) => {
-        return technology.name.toLowerCase().includes(searchQuery.toLowerCase());
-    });
+    const filteredTechnologies =
+        data &&
+        data.getAllTechnologies.filter((technology: GetAllTechnologies) => {
+            return technology.name
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase());
+        });
 
     const handleSearch = (query: string) => {
         setSearchQuery(query);
@@ -38,7 +42,7 @@ const TechnologiesWrapper: FC = () => {
                 <div className='w-full h-full rounded'>
                     <Header text='Technologies' />
                     <div className='mt-5'>
-                        <TechnologiesSearch onSearch={handleSearch}  />
+                        <TechnologiesSearch onSearch={handleSearch} />
                     </div>
                     {filteredTechnologies && filteredTechnologies.length > 0 ? (
                         <section className='mt-4'>
@@ -50,13 +54,16 @@ const TechnologiesWrapper: FC = () => {
                                             name={item.name}
                                             image={item.image}
                                         />
-                                    )
+                                    ),
                                 )}
                             </div>
                         </section>
                     ) : (
-                        <div className=" flex justify-center align-top text-gray-600 mt-8">
-                            <Ghost className='animate-bounce w-8 h-8' /> <span className='font-bold'>No Technology found</span>
+                        <div className=' flex justify-center align-top text-gray-600 mt-8'>
+                            <Ghost className='animate-bounce w-8 h-8' />{' '}
+                            <span className='font-bold'>
+                                No Technology found
+                            </span>
                         </div>
                     )}
                     <section className='mt-4 relative bottom-0'>
