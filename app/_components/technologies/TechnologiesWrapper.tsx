@@ -1,6 +1,6 @@
 "use client"
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Header from '../shared/Header';
 import Sidebar from '../shared/sidebar/Sidebar';
 import { useQuery } from '@apollo/client';
@@ -13,7 +13,8 @@ import TechnologiesPagination from './TechnologiesPagination';
 
 const TechnologiesWrapper: FC = () => {
     const { data, error, loading } = useQuery(GET_ALL_TECHNOLOGIES);
-
+    const [searchQuery, setSearchQuery] = useState<string>('');
+    
     if (loading) {
         return <Loader2 className='animate-spin' />;
     }
@@ -22,6 +23,14 @@ const TechnologiesWrapper: FC = () => {
         throw new Error(error.message);
     }
 
+    const filteredTechnologies = data.getAllTechnologies.filter((technology: GetAllTechnologies) => {
+        return technology.name.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+
+    const handleSearch = (query: string) => {
+        setSearchQuery(query);
+    };
+
     return (
         <div className='flex flex-no-wrap'>
             <Sidebar />
@@ -29,12 +38,12 @@ const TechnologiesWrapper: FC = () => {
                 <div className='w-full h-full rounded'>
                     <Header text='Technologies' />
                     <div className='mt-5'>
-                        <TechnologiesSearch />
+                        <TechnologiesSearch onSearch={handleSearch}  />
                     </div>
                     <section className='mt-4'>
                         <div className='w-fit mx-auto grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-20 gap-x-14 mt-10 mb-5'>
-                            {data &&
-                                data.getAllTechnologies.map(
+                            {filteredTechnologies &&
+                                filteredTechnologies.getAllTechnologies.map(
                                     (item: GetAllTechnologies) => (
                                         <TechnologiesCard
                                             key={item.id}
