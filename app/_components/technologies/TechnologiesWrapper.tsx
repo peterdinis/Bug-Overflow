@@ -8,13 +8,13 @@ import { GET_ALL_TECHNOLOGIES } from '@/app/_graphql/queries/technologyQueries';
 import TechnologiesSearch from './TechnologiesSearch';
 import TechnologiesCard from './TechnologiesCard';
 import { GetAllTechnologies } from '@/app/_graphql/types/TechnologyTypes';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Ghost } from 'lucide-react';
 import TechnologiesPagination from './TechnologiesPagination';
 
 const TechnologiesWrapper: FC = () => {
     const { data, error, loading } = useQuery(GET_ALL_TECHNOLOGIES);
     const [searchQuery, setSearchQuery] = useState<string>('');
-    
+
     if (loading) {
         return <Loader2 className='animate-spin' />;
     }
@@ -40,10 +40,10 @@ const TechnologiesWrapper: FC = () => {
                     <div className='mt-5'>
                         <TechnologiesSearch onSearch={handleSearch}  />
                     </div>
-                    <section className='mt-4'>
-                        <div className='w-fit mx-auto grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-20 gap-x-14 mt-10 mb-5'>
-                            {filteredTechnologies &&
-                                filteredTechnologies.map(
+                    {filteredTechnologies && filteredTechnologies.length > 0 ? (
+                        <section className='mt-4'>
+                            <div className='w-fit mx-auto grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-20 gap-x-14 mt-10 mb-5'>
+                                {filteredTechnologies.map(
                                     (item: GetAllTechnologies) => (
                                         <TechnologiesCard
                                             key={item.id}
@@ -52,9 +52,13 @@ const TechnologiesWrapper: FC = () => {
                                         />
                                     )
                                 )}
+                            </div>
+                        </section>
+                    ) : (
+                        <div className=" flex justify-center align-top text-gray-600 mt-8">
+                            <Ghost className='animate-bounce w-8 h-8' /> <span className='font-bold'>No Technology found</span>
                         </div>
-                    </section>
-
+                    )}
                     <section className='mt-4 relative bottom-0'>
                         <TechnologiesPagination />
                     </section>
