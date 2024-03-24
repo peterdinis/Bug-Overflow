@@ -23,7 +23,7 @@ const TechnologiesWrapper: FC = () => {
         throw new Error(error.message);
     }
 
-    const filteredTechnologies = data.getAllTechnologies.filter((technology: GetAllTechnologies) => {
+    const filteredTechnologies = data && data.getAllTechnologies.filter((technology: GetAllTechnologies) => {
         return technology.name.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
@@ -43,7 +43,7 @@ const TechnologiesWrapper: FC = () => {
                     <section className='mt-4'>
                         <div className='w-fit mx-auto grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-20 gap-x-14 mt-10 mb-5'>
                             {filteredTechnologies &&
-                                filteredTechnologies.getAllTechnologies.map(
+                                filteredTechnologies.map(
                                     (item: GetAllTechnologies) => (
                                         <TechnologiesCard
                                             key={item.id}
