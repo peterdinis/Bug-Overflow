@@ -36,7 +36,7 @@ const TechnologiesWrapper: FC = () => {
                             data.getAllTechnologies.map(
                                 (item: GetAllTechnologies) => {
                                     return (
-                                        <div key={item.id}>
+                                        <div className='w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5' key={item.id}>
                                             <TechnologiesCard
                                                 name={item.name}
                                                 image={item.image}
