@@ -74,12 +74,12 @@ const config = {
             },
 
             gridTemplateColumns: {
-                sidebar: '300px auto', //for sidebar layout
-                'sidebar-collapsed': '64px auto', //for collapsed sidebar layout
+                sidebar: '300px auto',
+                'sidebar-collapsed': '64px auto',
             },
         },
     },
-    plugins: [require('tailwindcss-animate')],
+    plugins: [require('tailwindcss-animate'), require('@tailwindcss/forms')],
 } satisfies Config;
 
 export default config;

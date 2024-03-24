@@ -16,7 +16,6 @@ export const GET_PAGINATED_TECHNOLOGIES = gql`
       id
       name
       image
-      // Add other fields you need
     }
   }
 `;
