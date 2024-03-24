@@ -14,7 +14,7 @@ const TechnologiesCard: FC<GetAllTechnologies> = ({
                     <img
                         src={image}
                         alt={name}
-                        className='h-50 w-50 object-cover rounded-t-xl'
+                        className='h-30 w-30 object-cover rounded-t-xl'
                     />
                     <div className='px-4 py-3 w-72'>
                         <span className='text-gray-400 font-bold mr-3 uppercase text-xs'>
