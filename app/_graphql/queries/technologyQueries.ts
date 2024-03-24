@@ -11,11 +11,11 @@ export const GET_ALL_TECHNOLOGIES = gql`
 `;
 
 export const GET_PAGINATED_TECHNOLOGIES = gql`
-  query PaginatedTechnologies($page: Int!, $pageSize: Int!) {
-    paginatedTechnologies(page: $page, pageSize: $pageSize) {
-      id
-      name
-      image
+    query PaginatedTechnologies($page: Int!, $pageSize: Int!) {
+        paginatedTechnologies(page: $page, pageSize: $pageSize) {
+            id
+            name
+            image
+        }
     }
-  }
 `;
