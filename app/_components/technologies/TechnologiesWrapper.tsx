@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import { FC } from 'react';
 import Header from '../shared/Header';
@@ -26,25 +26,24 @@ const TechnologiesWrapper: FC = () => {
         <div className='flex flex-no-wrap'>
             <Sidebar />
             <div className='container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6'>
-                <div className='w-full h-full rounded '>
+                <div className='w-full h-full rounded'>
                     <Header text='Technologies' />
                     <div className='mt-5'>
                         <TechnologiesSearch />
                     </div>
                     <section className='mt-4'>
-                        {data &&
-                            data.getAllTechnologies.map(
-                                (item: GetAllTechnologies) => {
-                                    return (
-                                        <div className='w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5' key={item.id}>
-                                            <TechnologiesCard
-                                                name={item.name}
-                                                image={item.image}
-                                            />
-                                        </div>
-                                    );
-                                },
-                            )}
+                        <div className='w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-20 gap-x-14 mt-10 mb-5'>
+                            {data &&
+                                data.getAllTechnologies.map(
+                                    (item: GetAllTechnologies) => (
+                                        <TechnologiesCard
+                                            key={item.id}
+                                            name={item.name}
+                                            image={item.image}
+                                        />
+                                    )
+                                )}
+                        </div>
                     </section>
 
                     <section className='mt-4 relative bottom-0'>
