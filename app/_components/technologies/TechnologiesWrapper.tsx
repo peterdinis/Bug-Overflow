@@ -4,7 +4,9 @@ import { FC, useState } from 'react';
 import Header from '../shared/Header';
 import Sidebar from '../shared/sidebar/Sidebar';
 import { useQuery } from '@apollo/client';
-import { GET_ALL_TECHNOLOGIES } from '@/app/_graphql/queries/technologyQueries';
+import {
+    GET_PAGINATED_TECHNOLOGIES,
+} from '@/app/_graphql/queries/technologyQueries';
 import TechnologiesSearch from './TechnologiesSearch';
 import TechnologiesCard from './TechnologiesCard';
 import { GetAllTechnologies } from '@/app/_graphql/types/TechnologyTypes';
@@ -12,7 +14,11 @@ import { Loader2, Ghost } from 'lucide-react';
 import TechnologiesPagination from './TechnologiesPagination';
 
 const TechnologiesWrapper: FC = () => {
-    const { data, error, loading } = useQuery(GET_ALL_TECHNOLOGIES);
+    const [page, setPage] = useState(1);
+    // const [pageSize, setPageSize] = useState(2); // Removed unused pageSize state
+    const { data, error, loading } = useQuery(GET_PAGINATED_TECHNOLOGIES, {
+        variables: { page, pageSize: 2 }, // Directly specifying pageSize as 2
+    });
     const [searchQuery, setSearchQuery] = useState<string>('');
 
     if (loading) {
@@ -25,7 +31,7 @@ const TechnologiesWrapper: FC = () => {
 
     const filteredTechnologies =
         data &&
-        data.getAllTechnologies.filter((technology: GetAllTechnologies) => {
+        data.paginatedTechnologies.filter((technology: GetAllTechnologies) => {
             return technology.name
                 .toLowerCase()
                 .includes(searchQuery.toLowerCase());
@@ -34,6 +40,8 @@ const TechnologiesWrapper: FC = () => {
     const handleSearch = (query: string) => {
         setSearchQuery(query);
     };
+
+    const totalPages = Math.ceil(data.paginatedTechnologies.length / 2); // Directly specifying pageSize as 2
 
     return (
         <div className='flex flex-no-wrap'>
@@ -67,7 +75,11 @@ const TechnologiesWrapper: FC = () => {
                         </div>
                     )}
                     <section className='mt-4 relative bottom-0'>
-                        <TechnologiesPagination />
+                        <TechnologiesPagination
+                            currentPage={page}
+                            totalPages={totalPages}
+                            onPageChange={setPage}
+                        />
                     </section>
                 </div>
             </div>
